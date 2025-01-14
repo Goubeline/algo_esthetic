@@ -22,6 +22,7 @@ function random_color_hsl(){
     return color;
 }
 
+
 function setup() {
   createCanvas(800, 800);
   color(HSL);
@@ -39,7 +40,17 @@ function setup() {
 }
 
 function draw() {
-  frameRate(2);
-  
+    
+}
 
+function createCSV() {
+    const rows = [
+        ["name1", "city1", "some other info"],
+        ["name2", "city2", "more info"]
+    ];
+    
+    let csvContent = "data:text/csv;charset=utf-8," 
+        + rows.map(e => e.join(",")).join("\n");
+    var encodedUri = encodeURI(csvContent);
+    window.open(encodedUri);
 }
