@@ -77,14 +77,14 @@ function random_color_hsl(){
 }
 
 function setup(){
-    createCanvas(800, 800);
+    createCanvas(600, 700);
     colorMode(HSL);
     rectMode(CENTER);
-    rect(400,400,600,600);
+    // rect(400,400,600,600);
     for (let i = 0; i < COLONNE; i++){
         let hsl = random_color_hsl();
         fill(hsl.hue, hsl.saturation, hsl.lightness);
-        rect(175 + (i*150),400,150,600);
+        rect(150 + (i*125),325,125,600);
     }
 }
 

@@ -4,4 +4,13 @@ html, body {
 }
   canvas {
     display: block;
-}  
+}
+
+#curseur{
+  display: flex;
+  flex-direction: row;
+}
+
+main{
+  display: flex;
+}
