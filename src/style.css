@@ -1,17 +1,20 @@
 html, body {
-    margin: 0;
+  margin-top: 0;
     padding: 0;
 }
   canvas {
     display: block;
 }
 
-#couleurs{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-
 main{
   display: flex;
+}
+
+.curseurs{
+  margin-right: 0;
+}
+
+#defaultCanvas0{
+  margin-left: 5%;
+  margin-right: 0;
 }

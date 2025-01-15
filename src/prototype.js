@@ -127,7 +127,7 @@ function random_color_hsl(){
 }
 
 function setup(){
-    createCanvas(600, 800);
+    createCanvas(590, 700);
     noLoop();
     
 }
@@ -138,7 +138,7 @@ function draw(){
   for (let i = 0; i < COLONNE; i++){
       let hsl = random_color_hsl();
       fill(hsl.hue, hsl.saturation, hsl.lightness);
-      rect(150 + (i*125),325,125,600);
+      rect(125 + (i*125),325,125,600);
       if (i === 0){
         colors_data[count].color_1_hue = hsl.hue;
         colors_data[count].color_1_saturation = hsl.saturation;
