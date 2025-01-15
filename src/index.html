@@ -10,48 +10,52 @@
   <body>
     <main>
       <div>
-        <input type="range" id="activeness" name="activeness" min="0" max="100"/>
-        <label for="activeness">Activeness (0 is passive and 100 is active)</label>
-        <p>Current: <output id="value_activeness"></output></p>
+        <div>
+          <input type="range" id="activeness" name="activeness" min="0" max="100"/>
+          <label for="activeness">Activeness (0 is passive and 100 is active)</label>
+          <p>Current: <output id="value_activeness"></output></p>
+        </div>
+        <div>
+          <input type="range" id="brightness" name="brightness" min="0" max="100"/>
+          <label for="brightness">Brightness (0 is dull and 100 is bright)</label>
+          <p>Current: <output id="value_brightness"></output></p>
+        </div>
+        <div>
+          <input type="range" id="bitterness" name="bitterness" min="0" max="100"/>
+          <label for="bitterness">Bitterness (0 is sugary and 100 is bitter)</label>
+          <p>Current: <output id="value_bitterness"></output></p>
+        </div>
+        <div>
+          <input type="range" id="acidity" name="acidity" min="0" max="100"/>
+          <label for="acidity">acidity (0 is mild and 100 is acid)</label>
+          <p>Current: <output id="value_acidity"></output></p>
+        </div>
+        <div>
+          <input type="range" id="temperature" name="temperature" min="0" max="100"/>
+          <label for="temperature">Temperature (0 is cold and 100 is hot)</label>
+          <p>Current: <output id="value_temperature"></output></p>
+        </div>
+        <div>
+          <input type="range" id="humidity" name="humidity" min="0" max="100"/>
+          <label for="humidity">Humidty (0 is dry and 100 is wet)</label>
+          <p>Current: <output id="value_humidity"></output></p>
+        </div>
+        <div>
+          <input type="range" id="loudness" name="loudness" min="0" max="100"/>
+          <label for="loudness">Loudness (0 is silent and 100 is noisy)</label>
+          <p>Current: <output id="value_loudness"></output></p>
+        </div>
+        <div>
+          <input type="range" id="harmoniousness" name="harmoniousness" min="0" max="100"/>
+          <label for="harmoniousness">Harmoniousness(0 is harsh and 100 is harmoniousness)</label>
+          <p>Current: <output id="value_harmoniousness"></output></p>
+        </div>
+        <div>
+          <button onclick="validate_colors_concepts()">Validate current association and get new colors</button>
+        </div>
       </div>
-      <div>
-        <input type="range" id="brightness" name="brightness" min="0" max="100"/>
-        <label for="brightness">Brightness (0 is dull and 100 is bright)</label>
-        <p>Current: <output id="value_brightness"></output></p>
-      </div>
-      <div>
-        <input type="range" id="bitterness" name="bitterness" min="0" max="100"/>
-        <label for="bitterness">Bitterness (0 is sugary and 100 is bitter)</label>
-        <p>Current: <output id="value_bitterness"></output></p>
-      </div>
-      <div>
-        <input type="range" id="acidity" name="acidity" min="0" max="100"/>
-        <label for="acidity">acidity (0 is mild and 100 is acid)</label>
-        <p>Current: <output id="value_acidity"></output></p>
-      </div>
-      <div>
-        <input type="range" id="temperature" name="temperature" min="0" max="100"/>
-        <label for="temperature">Temperature (0 is cold and 100 is hot)</label>
-        <p>Current: <output id="value_temperature"></output></p>
-      </div>
-      <div>
-        <input type="range" id="humidity" name="humidity" min="0" max="100"/>
-        <label for="humidity">Humidty (0 is dry and 100 is wet)</label>
-        <p>Current: <output id="value_humidity"></output></p>
-      </div>
-      <div>
-        <input type="range" id="loudness" name="loudness" min="0" max="100"/>
-        <label for="loudness">Loudness (0 is silent and 100 is noisy)</label>
-        <p>Current: <output id="value_loudness"></output></p>
-      </div>
-      <div>
-        <input type="range" id="harmoniousness" name="harmoniousness" min="0" max="100"/>
-        <label for="harmoniousness">Harmoniousness(0 is harsh and 100 is harmoniousness)</label>
-        <p>Current: <output id="value_harmoniousness"></output></p>
-      </div>
+      <script src="prototype.js"></script>
+      <!--<button onclick='createCSV()'>Download</button>--> 
     </main>
-    <button onclick="validate_colors_concepts()">Validate current association and get new colors</button>
-    <!--<button onclick='createCSV()'>Download</button>--> 
-    <script src="prototype.js"></script>
     </body>
 </html>
