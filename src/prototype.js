@@ -113,7 +113,27 @@ function validate_colors_concepts(){
   console.log(colors_data[count]);
   console.log(colors_data);
   count++;
+  if (count >= NB_LIGNES_CSV){
+    window.alert("CSV Has reached it's maximum capacity ! Please download your data and reload the page if you would like to continue.");
+  }
   redraw(1);
+}
+
+function createCSV(){
+  const rows =[
+    ["activeness","brightness","bitterness","acidity","temperature","humidity","loudness","harmoniousness","color_1_h","color_1_s","color_1_l","color_2_h","color_2_s","color_2_l","color_3_h","color_3_s","color_3_l","color_4_h","color_4_s","color_4_l"]
+  ];
+  
+  for (let i = 0 ; i < NB_LIGNES_CSV;i++){
+    rows.push(
+      [colors_data[i].activeness,colors_data[i].brightness,colors_data[i].bitterness,colors_data[i].acidity,colors_data[i].temperatrure,colors_data[i].humidty,colors_data[i].loudness,colors_data[i].harmoniousness,colors_data[i].color_1_hue,colors_data[i].color_1_saturation,colors_data[i].color_1_lightness,colors_data[i].color_2_hue,colors_data[i].color_2_saturation,colors_data[i].color_2_lightness,colors_data[i].color_3_hue,colors_data[i].color_3_saturation,colors_data[i].color_3_lightness,colors_data[i].color_4_hue,colors_data[i].color_4_saturation,colors_data[i].color_4_lightness]
+    );
+  }
+
+  let csvContent = "data:text/csv;charset=utf-8," 
+        + rows.map(e => e.join(",")).join("\n");
+  let encodedUri = encodeURI(csvContent);
+  window.open(encodedUri);
 }
 
 
