@@ -100,6 +100,32 @@ input_har.addEventListener("input", (event) => {
   value_har.textContent = event.target.value;
 });
 
+let frame;
+let buff;
+let color_1;
+let color_2;
+let color_3;
+let color_4;
+function fakeSetUp(){
+  color_1 = random_color_hsl();
+  color_2 = random_color_hsl();
+  color_3 = random_color_hsl();
+  color_4 = random_color_hsl();
+  colors_data[count].color_1_hue = color_1.hue;
+  colors_data[count].color_1_saturation = color_1.saturation;
+  colors_data[count].color_1_lightness = color_1.lightness;
+  colors_data[count].color_2_hue = color_2.hue;
+  colors_data[count].color_2_saturation = color_2.saturation;
+  colors_data[count].color_2_lightness = color_2.lightness;
+  colors_data[count].color_3_hue = color_3.hue;
+  colors_data[count].color_3_saturation = color_3.saturation;
+  colors_data[count].color_3_lightness = color_3.lightness;
+  colors_data[count].color_4_hue = color_4.hue;
+  colors_data[count].color_4_saturation = color_4.saturation;
+  colors_data[count].color_4_lightness = color_4.lightness;
+  frame = 150;
+}
+
 function validate_colors_concepts(){
   console.clear();
   colors_data[count].activeness = input_act.value;
@@ -113,7 +139,7 @@ function validate_colors_concepts(){
   console.log(colors_data[count]);
   console.log(colors_data);
   count++;
-  redraw(1);
+  fakeSetUp();
 }
 
 
@@ -159,34 +185,11 @@ function random_color_hsl(){
 //   }
 // }
 
-
-let frame;
-let buff;
-let color_1;
-let color_2;
-let color_3;
-let color_4;
 function setup(){
   createCanvas(600, 700);
   noStroke();
   colorMode(HSL);
-  color_1 = random_color_hsl();
-  color_2 = random_color_hsl();
-  color_3 = random_color_hsl();
-  color_4 = random_color_hsl();
-  colors_data[count].color_1_hue = color_1.hue;
-  colors_data[count].color_1_saturation = color_1.saturation;
-  colors_data[count].color_1_lightness = color_1.lightness;
-  colors_data[count].color_2_hue = color_2.hue;
-  colors_data[count].color_2_saturation = color_2.saturation;
-  colors_data[count].color_2_lightness = color_2.lightness;
-  colors_data[count].color_3_hue = color_3.hue;
-  colors_data[count].color_3_saturation = color_3.saturation;
-  colors_data[count].color_3_lightness = color_3.lightness;
-  colors_data[count].color_4_hue = color_4.hue;
-  colors_data[count].color_4_saturation = color_4.saturation;
-  colors_data[count].color_4_lightness = color_4.lightness;
-  frame = 150;
+  fakeSetUp();
 }
 
 function draw(){
