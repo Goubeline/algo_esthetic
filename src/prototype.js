@@ -126,35 +126,88 @@ function random_color_hsl(){
     return random_color;
 }
 
-function setup(){
-    createCanvas(590, 700);
-    noLoop();
+// function setup(){
+//     createCanvas(590, 700);
+//     noLoop();
     
+// }
+
+// function draw(){
+//   colorMode(HSL);
+//   rectMode(CENTER);
+//   for (let i = 0; i < COLONNE; i++){
+//       let hsl = random_color_hsl();
+//       fill(hsl.hue, hsl.saturation, hsl.lightness);
+//       rect(125 + (i*125),325,125,600);
+//       if (i === 0){
+//         colors_data[count].color_1_hue = hsl.hue;
+//         colors_data[count].color_1_saturation = hsl.saturation;
+//         colors_data[count].color_1_lightness = hsl.lightness;
+//       } else if (i === 1){
+//         colors_data[count].color_2_hue = hsl.hue;
+//         colors_data[count].color_2_saturation = hsl.saturation;
+//         colors_data[count].color_2_lightness = hsl.lightness;
+//       } else if (i === 2){
+//         colors_data[count].color_3_hue = hsl.hue;
+//         colors_data[count].color_3_saturation = hsl.saturation;
+//         colors_data[count].color_3_lightness = hsl.lightness;
+//       } else {
+//         colors_data[count].color_4_hue = hsl.hue;
+//         colors_data[count].color_4_saturation = hsl.saturation;
+//         colors_data[count].color_4_lightness = hsl.lightness;
+//       }
+//   }
+// }
+
+
+let frame;
+let buff;
+let color_1;
+let color_2;
+let color_3;
+let color_4;
+function setup(){
+  createCanvas(600, 700);
+  noStroke();
+  colorMode(HSL);
+  color_1 = random_color_hsl();
+  color_2 = random_color_hsl();
+  color_3 = random_color_hsl();
+  color_4 = random_color_hsl();
+  colors_data[count].color_1_hue = color_1.hue;
+  colors_data[count].color_1_saturation = color_1.saturation;
+  colors_data[count].color_1_lightness = color_1.lightness;
+  colors_data[count].color_2_hue = color_2.hue;
+  colors_data[count].color_2_saturation = color_2.saturation;
+  colors_data[count].color_2_lightness = color_2.lightness;
+  colors_data[count].color_3_hue = color_3.hue;
+  colors_data[count].color_3_saturation = color_3.saturation;
+  colors_data[count].color_3_lightness = color_3.lightness;
+  colors_data[count].color_4_hue = color_4.hue;
+  colors_data[count].color_4_saturation = color_4.saturation;
+  colors_data[count].color_4_lightness = color_4.lightness;
+  frame = 150;
 }
 
 function draw(){
-  colorMode(HSL);
-  rectMode(CENTER);
-  for (let i = 0; i < COLONNE; i++){
-      let hsl = random_color_hsl();
-      fill(hsl.hue, hsl.saturation, hsl.lightness);
-      rect(125 + (i*125),325,125,600);
-      if (i === 0){
-        colors_data[count].color_1_hue = hsl.hue;
-        colors_data[count].color_1_saturation = hsl.saturation;
-        colors_data[count].color_1_lightness = hsl.lightness;
-      } else if (i === 1){
-        colors_data[count].color_2_hue = hsl.hue;
-        colors_data[count].color_2_saturation = hsl.saturation;
-        colors_data[count].color_2_lightness = hsl.lightness;
-      } else if (i === 2){
-        colors_data[count].color_3_hue = hsl.hue;
-        colors_data[count].color_3_saturation = hsl.saturation;
-        colors_data[count].color_3_lightness = hsl.lightness;
-      } else {
-        colors_data[count].color_4_hue = hsl.hue;
-        colors_data[count].color_4_saturation = hsl.saturation;
-        colors_data[count].color_4_lightness = hsl.lightness;
-      }
+  if (frame == -1)
+  {
+    frame = 150;
+    buff = color_1;
+    color_1 = color_2;
+    color_2 = color_3;
+    color_3 = color_4;
+    color_4 = buff;
   }
+  fill(color_4.hue, color_4.saturation, color_4.lightness);
+  rect(-150 + frame, 0, 150, 600);
+  fill(color_1.hue, color_1.saturation, color_1.lightness);
+  rect(frame, 0, 150, 600);
+  fill(color_2.hue, color_2.saturation, color_2.lightness);
+  rect(150 + frame, 0, 150, 600);
+  fill(color_3.hue, color_3.saturation, color_3.lightness);
+  rect(300 + frame, 0, 150, 600);
+  fill(color_4.hue, color_4.saturation, color_4.lightness);
+  rect(450 + frame, 0, 150, 600);
+  frame--;
 }
