@@ -100,32 +100,6 @@ input_har.addEventListener("input", (event) => {
   value_har.textContent = event.target.value;
 });
 
-let frame;
-let buff;
-let color_1;
-let color_2;
-let color_3;
-let color_4;
-function fakeSetUp(){
-  color_1 = random_color_hsl();
-  color_2 = random_color_hsl();
-  color_3 = random_color_hsl();
-  color_4 = random_color_hsl();
-  colors_data[count].color_1_hue = color_1.hue;
-  colors_data[count].color_1_saturation = color_1.saturation;
-  colors_data[count].color_1_lightness = color_1.lightness;
-  colors_data[count].color_2_hue = color_2.hue;
-  colors_data[count].color_2_saturation = color_2.saturation;
-  colors_data[count].color_2_lightness = color_2.lightness;
-  colors_data[count].color_3_hue = color_3.hue;
-  colors_data[count].color_3_saturation = color_3.saturation;
-  colors_data[count].color_3_lightness = color_3.lightness;
-  colors_data[count].color_4_hue = color_4.hue;
-  colors_data[count].color_4_saturation = color_4.saturation;
-  colors_data[count].color_4_lightness = color_4.lightness;
-  frame = 150;
-}
-
 function validate_colors_concepts(){
   console.clear();
   colors_data[count].activeness = input_act.value;
@@ -139,7 +113,27 @@ function validate_colors_concepts(){
   console.log(colors_data[count]);
   console.log(colors_data);
   count++;
-  fakeSetUp();
+  if (count >= NB_LIGNES_CSV){
+    window.alert("CSV Has reached it's maximum capacity ! Please download your data and reload the page if you would like to continue.");
+  }
+  redraw(1);
+}
+
+function createCSV(){
+  const rows =[
+    ["activeness","brightness","bitterness","acidity","temperature","humidity","loudness","harmoniousness","color_1_h","color_1_s","color_1_l","color_2_h","color_2_s","color_2_l","color_3_h","color_3_s","color_3_l","color_4_h","color_4_s","color_4_l"]
+  ];
+  
+  for (let i = 0 ; i < NB_LIGNES_CSV;i++){
+    rows.push(
+      [colors_data[i].activeness,colors_data[i].brightness,colors_data[i].bitterness,colors_data[i].acidity,colors_data[i].temperatrure,colors_data[i].humidty,colors_data[i].loudness,colors_data[i].harmoniousness,colors_data[i].color_1_hue,colors_data[i].color_1_saturation,colors_data[i].color_1_lightness,colors_data[i].color_2_hue,colors_data[i].color_2_saturation,colors_data[i].color_2_lightness,colors_data[i].color_3_hue,colors_data[i].color_3_saturation,colors_data[i].color_3_lightness,colors_data[i].color_4_hue,colors_data[i].color_4_saturation,colors_data[i].color_4_lightness]
+    );
+  }
+
+  let csvContent = "data:text/csv;charset=utf-8," 
+        + rows.map(e => e.join(",")).join("\n");
+  let encodedUri = encodeURI(csvContent);
+  window.open(encodedUri);
 }
 
 
@@ -152,65 +146,35 @@ function random_color_hsl(){
     return random_color;
 }
 
-// function setup(){
-//     createCanvas(590, 700);
-//     noLoop();
-    
-// }
-
-// function draw(){
-//   colorMode(HSL);
-//   rectMode(CENTER);
-//   for (let i = 0; i < COLONNE; i++){
-//       let hsl = random_color_hsl();
-//       fill(hsl.hue, hsl.saturation, hsl.lightness);
-//       rect(125 + (i*125),325,125,600);
-//       if (i === 0){
-//         colors_data[count].color_1_hue = hsl.hue;
-//         colors_data[count].color_1_saturation = hsl.saturation;
-//         colors_data[count].color_1_lightness = hsl.lightness;
-//       } else if (i === 1){
-//         colors_data[count].color_2_hue = hsl.hue;
-//         colors_data[count].color_2_saturation = hsl.saturation;
-//         colors_data[count].color_2_lightness = hsl.lightness;
-//       } else if (i === 2){
-//         colors_data[count].color_3_hue = hsl.hue;
-//         colors_data[count].color_3_saturation = hsl.saturation;
-//         colors_data[count].color_3_lightness = hsl.lightness;
-//       } else {
-//         colors_data[count].color_4_hue = hsl.hue;
-//         colors_data[count].color_4_saturation = hsl.saturation;
-//         colors_data[count].color_4_lightness = hsl.lightness;
-//       }
-//   }
-// }
-
 function setup(){
-  createCanvas(600, 700);
-  noStroke();
-  colorMode(HSL);
-  fakeSetUp();
+    createCanvas(590, 700);
+    noLoop();
+    
 }
 
 function draw(){
-  if (frame == -1)
-  {
-    frame = 150;
-    buff = color_1;
-    color_1 = color_2;
-    color_2 = color_3;
-    color_3 = color_4;
-    color_4 = buff;
+  colorMode(HSL);
+  rectMode(CENTER);
+  for (let i = 0; i < COLONNE; i++){
+      let hsl = random_color_hsl();
+      fill(hsl.hue, hsl.saturation, hsl.lightness);
+      rect(125 + (i*125),325,125,600);
+      if (i === 0){
+        colors_data[count].color_1_hue = hsl.hue;
+        colors_data[count].color_1_saturation = hsl.saturation;
+        colors_data[count].color_1_lightness = hsl.lightness;
+      } else if (i === 1){
+        colors_data[count].color_2_hue = hsl.hue;
+        colors_data[count].color_2_saturation = hsl.saturation;
+        colors_data[count].color_2_lightness = hsl.lightness;
+      } else if (i === 2){
+        colors_data[count].color_3_hue = hsl.hue;
+        colors_data[count].color_3_saturation = hsl.saturation;
+        colors_data[count].color_3_lightness = hsl.lightness;
+      } else {
+        colors_data[count].color_4_hue = hsl.hue;
+        colors_data[count].color_4_saturation = hsl.saturation;
+        colors_data[count].color_4_lightness = hsl.lightness;
+      }
   }
-  fill(color_4.hue, color_4.saturation, color_4.lightness);
-  rect(-150 + frame, 0, 150, 600);
-  fill(color_1.hue, color_1.saturation, color_1.lightness);
-  rect(frame, 0, 150, 600);
-  fill(color_2.hue, color_2.saturation, color_2.lightness);
-  rect(150 + frame, 0, 150, 600);
-  fill(color_3.hue, color_3.saturation, color_3.lightness);
-  rect(300 + frame, 0, 150, 600);
-  fill(color_4.hue, color_4.saturation, color_4.lightness);
-  rect(450 + frame, 0, 150, 600);
-  frame--;
 }
