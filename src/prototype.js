@@ -161,11 +161,13 @@ function add_substract_value(name,add_or_substract){
 }
 
 let frame;
+let textFrame;
 let buff;
 let color_1;
 let color_2;
 let color_3;
 let color_4;
+
 function fakeSetUp(){
   color_1 = random_color_hsl();
   color_2 = random_color_hsl();
@@ -184,6 +186,7 @@ function fakeSetUp(){
   colors_data[count].color_4_saturation = color_4.saturation;
   colors_data[count].color_4_lightness = color_4.lightness;
   frame = 150;
+  textFrame = 600;
 }
 
 function validate_colors_concepts(){
@@ -276,6 +279,7 @@ function setup(){
   createCanvas(600, 700);
   noStroke();
   colorMode(HSL);
+  textSize(50);
   fakeSetUp();
 }
 
@@ -289,15 +293,23 @@ function draw(){
     color_3 = color_4;
     color_4 = buff;
   }
+
+  if (textFrame == -1) {
+    textFrame = 600;
+  }
+
   fill(color_4.hue, color_4.saturation, color_4.lightness);
   rect(-150 + frame, 0, 150, 600);
   fill(color_1.hue, color_1.saturation, color_1.lightness);
   rect(frame, 0, 150, 600);
-  fill(color_2.hue, color_2.saturation, color_2.lightness);
+  fill(color_2.hue, color_2.saturation, color_2.lightness);  
   rect(150 + frame, 0, 150, 600);
   fill(color_3.hue, color_3.saturation, color_3.lightness);
   rect(300 + frame, 0, 150, 600);
   fill(color_4.hue, color_4.saturation, color_4.lightness);
   rect(450 + frame, 0, 150, 600);
+  fill("black");
+  text("1", textFrame - 90, 590);
   frame--;
+  textFrame--;
 }
