@@ -183,7 +183,13 @@ function createCSV(){
   let csvContent = "data:text/csv;charset=utf-8," 
         + rows.map(e => e.join(",")).join("\n");
   let encodedUri = encodeURI(csvContent);
-  window.open(encodedUri);
+  
+  var downloadLink = document.createElement("a");
+  downloadLink.href = encodedUri;
+  downloadLink.download = "colors_values.csv";
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);  
 }
 
 
