@@ -205,30 +205,31 @@ function animate(){
     if (textFrame == -1) {
       textFrame = 599;
     }
-  
-    fill(color_4.hue, color_4.saturation, color_4.lightness);
-    rect(-150 + frame, 0, 150, 600);
     fill(color_1.hue, color_1.saturation, color_1.lightness);
-    rect(frame, 0, 150, 600);
+    rect(-150 + frame, 0, 150, 600);
     fill(color_2.hue, color_2.saturation, color_2.lightness);  
-    rect(150 + frame, 0, 150, 600);
+    rect(frame, 0, 150, 600);
     fill(color_3.hue, color_3.saturation, color_3.lightness);
-    rect(300 + frame, 0, 150, 600);
+    rect(150 + frame, 0, 150, 600);
     fill(color_4.hue, color_4.saturation, color_4.lightness);
+    rect(300 + frame, 0, 150, 600);
+    fill(color_1.hue, color_1.saturation, color_1.lightness);
     rect(450 + frame, 0, 150, 600);
   
     push()
       stroke("white");
       strokeWeight(4);
       fill("black");
-      text("4", textFrame - 540, 590);
-      text("1", textFrame - 390, 590);
-      text("2", textFrame - 240, 590);
-      text("3", textFrame - 80, 590);
-      text("4", textFrame + 70, 590);
-      text("1", textFrame + 220, 590);
-      text("2", textFrame + 370, 590);
-      text("3", textFrame + 520, 590);
+      text("1", textFrame - 530, 590);
+      text("2", textFrame - 380, 590);
+      text("3", textFrame - 230, 590);
+      text("4", textFrame - 80, 590);
+      text("1", textFrame + 70, 590);
+      text("2", textFrame + 220, 590);
+      text("3", textFrame + 370, 590);
+      text("4", textFrame + 520, 590);
+
+      text(frame, 10, 10);
     pop()
     frame--;
     textFrame--;
