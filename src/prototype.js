@@ -142,6 +142,24 @@ function validate_colors_concepts(){
   if (count >= NB_LIGNES_CSV){
     window.alert("CSV Has reached it's maximum capacity ! Please download your data and reload the page if you would like to continue.");
   }
+  input_act.value =50;
+  value_act.textContent =50;
+  input_bri.value =50;
+  value_bri.textContent =50;
+  input_bit.value =50;
+  value_bit.textContent =50;
+  input_aci.value =50;
+  value_aci.textContent =50;
+  input_tem.value =50;
+  value_tem.textContent =50;
+  input_hum.value =50;
+  value_hum.textContent =50;
+  input_lou.value =50;
+  value_lou.textContent =50;
+  input_har.value =50;
+  value_har.textContent =50;
+  
+
   fakeSetUp();
 }
 
@@ -149,8 +167,14 @@ function createCSV(){
   const rows =[
     ["activeness","brightness","bitterness","acidity","temperature","humidity","loudness","harmoniousness","color_1_h","color_1_s","color_1_l","color_2_h","color_2_s","color_2_l","color_3_h","color_3_s","color_3_l","color_4_h","color_4_s","color_4_l"]
   ];
-  
-  for (let i = 0 ; i < NB_LIGNES_CSV;i++){
+  let limit = 0;
+  if (count < NB_LIGNES_CSV){
+    limit = count;
+  } else {
+    limit = NB_LIGNES_CSV;
+  }
+
+  for (let i = 0 ; i < limit;i++){
     rows.push(
       [colors_data[i].activeness,colors_data[i].brightness,colors_data[i].bitterness,colors_data[i].acidity,colors_data[i].temperatrure,colors_data[i].humidty,colors_data[i].loudness,colors_data[i].harmoniousness,colors_data[i].color_1_hue,colors_data[i].color_1_saturation,colors_data[i].color_1_lightness,colors_data[i].color_2_hue,colors_data[i].color_2_saturation,colors_data[i].color_2_lightness,colors_data[i].color_3_hue,colors_data[i].color_3_saturation,colors_data[i].color_3_lightness,colors_data[i].color_4_hue,colors_data[i].color_4_saturation,colors_data[i].color_4_lightness]
     );

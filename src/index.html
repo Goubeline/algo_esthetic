@@ -50,10 +50,9 @@
           <label for="harmoniousness">Harmoniousness (0 is harsh and 100 is harmonious)</label>
           <p>Current: <output id="value_harmoniousness"></output></p>
         </div>
-        <div>
-          <button onclick="validate_colors_concepts()">Validate current association and get new colors</button>
-
-          <button onclick='createCSV()'>Download</button> 
+        <div id="buttons">
+          <button id="validate" onclick="validate_colors_concepts()">Validate current association and get new colors</button>
+          <button id="download" onclick='createCSV()'>Download CSV</button> 
         </div>
       </div>
       <script src="prototype.js"></script>
