@@ -231,8 +231,6 @@ function animate(){
       text("2", textFrame + 220, 590);
       text("3", textFrame + 370, 590);
       text("4", textFrame + 520, 590);
-
-      text(frame, 10, 10);
     pop()
     frame--;
     textFrame--;
@@ -251,15 +249,17 @@ function no_animation(){
   stroke("white");
   strokeWeight(4);
   fill("black");
-  text("1", 60, 590);
-  text("2", 210, 590);
-  text("3", 360, 590);
+  text("1", 70, 590);
+  text("2", 220, 590);
+  text("3", 370, 590);
   text("4", 520, 590);
 }
 
 function switch_animation(){
   if (state === 'red_light'){
     document.getElementById('animate_sliding_colors').textContent = 'Make the colors stop';
+    frame = 150;
+    textFrame = 600;
     state = 'green_light';
   } else if (state === 'green_light'){
     document.getElementById('animate_sliding_colors').textContent = 'Make the colors move';
@@ -357,6 +357,7 @@ function setup(){
 
 function draw(){
   if (state === 'green_light'){
+
     animate();
   } else if (state === 'red_light'){
     no_animation();
