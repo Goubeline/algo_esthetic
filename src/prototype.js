@@ -221,14 +221,14 @@ function animate(){
       stroke("white");
       strokeWeight(4);
       fill("black");
-      text("1", textFrame - 540, 590);
-      text("2", textFrame - 390, 590);
-      text("3", textFrame - 240, 590);
-      text("4", textFrame - 90, 590);
-      text("1", textFrame + 60, 590);
-      text("2", textFrame + 210, 590);
-      text("3", textFrame + 360, 590);
-      text("4", textFrame + 510, 590);
+      text("4", textFrame - 540, 590);
+      text("1", textFrame - 390, 590);
+      text("2", textFrame - 240, 590);
+      text("3", textFrame - 80, 590);
+      text("4", textFrame + 70, 590);
+      text("1", textFrame + 220, 590);
+      text("2", textFrame + 370, 590);
+      text("3", textFrame + 520, 590);
     pop()
     frame--;
     textFrame--;
@@ -339,7 +339,7 @@ function setup(){
   createCanvas(600, 700);
   noStroke();
   colorMode(HSL);
-  textSize(50);
+  textSize(25);
   fakeSetUp();
 }
 
