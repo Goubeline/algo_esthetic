@@ -202,6 +202,10 @@ function random_color_hsl(){
     return random_color;
 }
 
+// function tempered_brightness_hsl(){
+
+// }
+
 function setup(){
     createCanvas(590, 700);
     noLoop();

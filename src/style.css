@@ -5,8 +5,7 @@
 
 html, body {
   font-family: "Quicksand";
-  margin-top: auto;
-  margin: 0;
+  margin: auto;
   padding: 0;
   font-size: 18px;
 }
@@ -27,6 +26,7 @@ button{
   align-items: center;
   padding-top: 2%;
   border-right: 0;
+  border-left: 0;
   display: flex;
   flex-flow: row;
   justify-content: space-between;
@@ -48,15 +48,15 @@ p{
 }
 
 .curseurs{
-  margin: 0;
   width: 40%;
+  margin: 2%;
+  margin-top: 1%;
 }
 
 .curseurs>div{
   padding-left: 5%;
   border: 1px solid black;
   border-bottom: 0;
-  border-left: 0;
   padding-right: 5%;
   padding-top: 5px;
   display: flex;
@@ -65,8 +65,14 @@ p{
 }
 
 #defaultCanvas0{
-  margin-left: 5%;
-  margin-right: 0;
+  margin: 2%;
+  margin-top: 1%;
+}
+
+.input_label{
+  display: flex;
+  flex-flow: row;
+  align-items: center;
 }
 
 input{
@@ -75,4 +81,10 @@ input{
 
 label{
   vertical-align: top;
+}
+
+.blank_space{
+  margin:0;
+  padding: 0;
+  color:white;
 }
