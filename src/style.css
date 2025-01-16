@@ -72,19 +72,22 @@ p{
 .input_label{
   display: flex;
   flex-flow: row;
-  align-items: center;
 }
 
 input{
   vertical-align: top;
+  width: 150px;
 }
 
 label{
   vertical-align: top;
+  width: 100px;
+  text-align: center;
 }
 
 .blank_space{
   margin:0;
   padding: 0;
   color:white;
+  width: 100px;
 }
