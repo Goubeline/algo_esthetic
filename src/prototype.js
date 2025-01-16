@@ -104,56 +104,56 @@ function add_substract_value(name,add_or_substract){
   if (name === 'act'){
     if(add_or_substract === 'add'){
       input_act.value++;
-    } else if (add_or_substract === 'subtract'){
+    } else if (add_or_substract === 'sub'){
       input_act.value--;
     }
     value_act.textContent = input_act.value;
   } else if (name === 'bri'){
     if(add_or_substract === 'add'){
       input_bri.value++;
-    } else if (add_or_substract === 'subtract'){
+    } else if (add_or_substract === 'sub'){
       input_bri.value--;
     }
     value_bri.textContent = input_bri.value;
   } else if (name === 'bit'){
     if(add_or_substract === 'add'){
       input_bit.value++;
-    } else if (add_or_substract === 'subtract'){
+    } else if (add_or_substract === 'sub'){
       input_bit.value--;
     }
     value_bit.textContent = input_bit.value;
   } else if (name === 'aci'){
     if(add_or_substract === 'add'){
       input_aci.value++;
-    } else if (add_or_substract === 'subtract'){
+    } else if (add_or_substract === 'sub'){
       input_aci.value--;
     }
     value_aci.textContent = input_aci.value;
   } else if (name === 'tem'){
     if(add_or_substract === 'add'){
       input_tem.value++;
-    } else if (add_or_substract === 'subtract'){
+    } else if (add_or_substract === 'sub'){
       input_tem.value--;
     }
     value_tem.textContent = input_tem.value;
   } else if (name === 'hum'){
     if(add_or_substract === 'add'){
       input_hum.value++;
-    } else if (add_or_substract === 'subtract'){
+    } else if (add_or_substract === 'sub'){
       input_hum.value--;
     }
     value_hum.textContent = input_hum.value;
   } else if (name === 'lou'){
     if(add_or_substract === 'add'){
       input_lou.value++;
-    } else if (add_or_substract === 'subtract'){
+    } else if (add_or_substract === 'sub'){
       input_lou.value--;
     }
     value_lou.textContent = input_lou.value;
   } else if (name === 'har'){
     if(add_or_substract === 'add'){
       input_har.value++;
-    } else if (add_or_substract === 'subtract'){
+    } else if (add_or_substract === 'sub'){
       input_har.value--;
     }
     value_har.textContent = input_har.value;
