@@ -239,7 +239,7 @@ function createCSV(){
 
   for (let i = 0 ; i < limit;i++){
     rows.push(
-      [colors_data[i].activeness,colors_data[i].brightness,colors_data[i].bitterness,colors_data[i].acidity,colors_data[i].temperatrure,colors_data[i].humidty,colors_data[i].loudness,colors_data[i].harmoniousness,colors_data[i].color_1_hue,colors_data[i].color_1_saturation,colors_data[i].color_1_lightness,colors_data[i].color_2_hue,colors_data[i].color_2_saturation,colors_data[i].color_2_lightness,colors_data[i].color_3_hue,colors_data[i].color_3_saturation,colors_data[i].color_3_lightness,colors_data[i].color_4_hue,colors_data[i].color_4_saturation,colors_data[i].color_4_lightness]
+      [colors_data[i].activeness/100,colors_data[i].brightness/100,colors_data[i].bitterness/100,colors_data[i].acidity/100,colors_data[i].temperatrure/100,colors_data[i].humidty/100,colors_data[i].loudness/100,colors_data[i].harmoniousness/100,colors_data[i].color_1_hue,colors_data[i].color_1_saturation,colors_data[i].color_1_lightness,colors_data[i].color_2_hue,colors_data[i].color_2_saturation,colors_data[i].color_2_lightness,colors_data[i].color_3_hue,colors_data[i].color_3_saturation,colors_data[i].color_3_lightness,colors_data[i].color_4_hue,colors_data[i].color_4_saturation,colors_data[i].color_4_lightness]
     );
   }
 
