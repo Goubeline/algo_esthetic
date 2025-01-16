@@ -235,15 +235,13 @@ function animate(){
 }
 
 function no_animation(){
-  fill(color_4.hue, color_4.saturation, color_4.lightness);
-  rect(-150, 0, 150, 600);
-  fill(color_1.hue, color_1.saturation, color_1.lightness);
+  fill(colors_data[count].color_1_hue,colors_data[count].color_1_saturation, colors_data[count].color_1_lightness);
   rect(0, 0, 150, 600);
-  fill(color_2.hue, color_2.saturation, color_2.lightness);  
+  fill(colors_data[count].color_2_hue,colors_data[count].color_2_saturation, colors_data[count].color_2_lightness);  
   rect(150, 0, 150, 600);
-  fill(color_3.hue, color_3.saturation, color_3.lightness);
+  fill(colors_data[count].color_3_hue,colors_data[count].color_3_saturation, colors_data[count].color_3_lightness);
   rect(300, 0, 150, 600);
-  fill(color_4.hue, color_4.saturation, color_4.lightness);
+  fill(colors_data[count].color_4_hue,colors_data[count].color_4_saturation, colors_data[count].color_4_lightness);
   rect(450, 0, 150, 600);
 }
 
