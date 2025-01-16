@@ -7,7 +7,7 @@ html, body {
   font-family: "Quicksand";
   margin: auto;
   padding: 0;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 canvas {
@@ -44,13 +44,13 @@ button{
 
 p{
   margin: 0;
-  padding: 10px;
+  padding: 5px;
 }
 
 .curseurs{
   width: 40%;
   margin: 2%;
-  margin-top: 1%;
+  margin-top: 2%;
 }
 
 .curseurs>div{
@@ -66,7 +66,7 @@ p{
 
 #defaultCanvas0{
   margin: 2%;
-  margin-top: 1%;
+  margin-top: 2%;
 }
 
 .input_label{
