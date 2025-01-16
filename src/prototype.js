@@ -2,6 +2,8 @@ const MARGIN = 100;
 const COLONNE = 4;
 const NB_LIGNES_CSV = 100;
 
+let state = 'red_light';
+
 class color_concepts{
   constructor(){
     this.activeness = -1;
@@ -232,6 +234,29 @@ function animate(){
     textFrame--;
 }
 
+function no_animation(){
+  fill(color_4.hue, color_4.saturation, color_4.lightness);
+  rect(-150, 0, 150, 600);
+  fill(color_1.hue, color_1.saturation, color_1.lightness);
+  rect(0, 0, 150, 600);
+  fill(color_2.hue, color_2.saturation, color_2.lightness);  
+  rect(150, 0, 150, 600);
+  fill(color_3.hue, color_3.saturation, color_3.lightness);
+  rect(300, 0, 150, 600);
+  fill(color_4.hue, color_4.saturation, color_4.lightness);
+  rect(450, 0, 150, 600);
+}
+
+function switch_animation(){
+  if (state === 'red_light'){
+    document.getElementById('animate_sliding_colors').textContent = 'Make the colors stop';
+    state = 'green_light';
+  } else if (state === 'green_light'){
+    document.getElementById('animate_sliding_colors').textContent = 'Make the colors move';
+    state = 'red_light';
+  }
+}
+
 function validate_colors_concepts(){
   console.clear();
   colors_data[count].activeness = input_act.value;
@@ -321,5 +346,9 @@ function setup(){
 }
 
 function draw(){
-  animate();
+  if (state === 'green_light'){
+    animate();
+  } else if (state === 'red_light'){
+    no_animation();
+  }
 }
