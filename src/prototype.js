@@ -247,10 +247,10 @@ function no_animation(){
   stroke("white");
   strokeWeight(4);
   fill("black");
-  text("1", textFrame - 540, 590);
-  text("2", textFrame - 390, 590);
-  text("3", textFrame - 240, 590);
-  text("4", textFrame - 80, 590);
+  text("1", 60, 590);
+  text("2", 210, 590);
+  text("3", 360, 590);
+  text("4", 520, 590);
 }
 
 function switch_animation(){
