@@ -308,8 +308,13 @@ function draw(){
   rect(300 + frame, 0, 150, 600);
   fill(color_4.hue, color_4.saturation, color_4.lightness);
   rect(450 + frame, 0, 150, 600);
-  fill("black");
-  text("1", textFrame - 90, 590);
+
+  push()
+    stroke("white");
+    strokeWeight(4);
+    fill("black");
+    text("1", textFrame - 90, 590);
+  pop()
   frame--;
   textFrame--;
 }
