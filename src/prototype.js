@@ -206,11 +206,9 @@ function animate(){
       textFrame = 599;
     }
     noStroke();
-    fill(color_4.hue, color_4.saturation, color_4.lightness);
-    rect(-150 + frame, 0, 150, 600);
     fill(color_1.hue, color_1.saturation, color_1.lightness);
     rect(-150 + frame, 0, 150, 600);
-    fill(color_2.hue, color_2.saturation, color_2.lightness);  
+    fill(color_2.hue, color_2.saturation, color_2.lightness);
     rect(frame, 0, 150, 600);
     fill(color_3.hue, color_3.saturation, color_3.lightness);
     rect(150 + frame, 0, 150, 600);
@@ -218,7 +216,9 @@ function animate(){
     rect(300 + frame, 0, 150, 600);
     fill(color_1.hue, color_1.saturation, color_1.lightness);
     rect(450 + frame, 0, 150, 600);
-  
+    fill(color_2.hue, color_2.saturation, color_2.lightness);
+    rect(600 + frame, 0, 150, 600);
+
     push()
       stroke("white");
       strokeWeight(4);
@@ -246,6 +246,8 @@ function no_animation(){
   rect(300, 0, 150, 600);
   fill(colors_data[count].color_4_hue,colors_data[count].color_4_saturation, colors_data[count].color_4_lightness);
   rect(450, 0, 150, 600);
+  fill("white");
+  rect(600, 0, 50, 600);
   stroke("white");
   strokeWeight(4);
   fill("black");
@@ -348,7 +350,7 @@ function random_color_hsl(){
 // }
 
 function setup(){
-  createCanvas(600, 700);
+  createCanvas(650, 700);
   noStroke();
   colorMode(HSL);
   textSize(25);
