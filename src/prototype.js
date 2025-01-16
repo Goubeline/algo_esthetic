@@ -205,7 +205,7 @@ function animate(){
     if (textFrame == -1) {
       textFrame = 599;
     }
-  
+    noStroke();
     fill(color_4.hue, color_4.saturation, color_4.lightness);
     rect(-150 + frame, 0, 150, 600);
     fill(color_1.hue, color_1.saturation, color_1.lightness);
@@ -235,6 +235,7 @@ function animate(){
 }
 
 function no_animation(){
+  noStroke();
   fill(colors_data[count].color_1_hue,colors_data[count].color_1_saturation, colors_data[count].color_1_lightness);
   rect(0, 0, 150, 600);
   fill(colors_data[count].color_2_hue,colors_data[count].color_2_saturation, colors_data[count].color_2_lightness);  
@@ -243,6 +244,13 @@ function no_animation(){
   rect(300, 0, 150, 600);
   fill(colors_data[count].color_4_hue,colors_data[count].color_4_saturation, colors_data[count].color_4_lightness);
   rect(450, 0, 150, 600);
+  stroke("white");
+  strokeWeight(4);
+  fill("black");
+  text("1", textFrame - 540, 590);
+  text("2", textFrame - 390, 590);
+  text("3", textFrame - 240, 590);
+  text("4", textFrame - 80, 590);
 }
 
 function switch_animation(){
