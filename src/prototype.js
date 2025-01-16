@@ -192,7 +192,7 @@ function fakeSetUp(){
 function animate(){
   if (frame == -1)
     {
-      frame = 150;
+      frame = 149;
       buff = color_1;
       color_1 = color_2;
       color_2 = color_3;
@@ -201,7 +201,7 @@ function animate(){
     }
   
     if (textFrame == -1) {
-      textFrame = 600;
+      textFrame = 599;
     }
   
     fill(color_4.hue, color_4.saturation, color_4.lightness);
@@ -219,7 +219,14 @@ function animate(){
       stroke("white");
       strokeWeight(4);
       fill("black");
-      text("1", textFrame - 90, 590);
+      text("1", textFrame - 540, 590);
+      text("2", textFrame - 390, 590);
+      text("3", textFrame - 240, 590);
+      text("4", textFrame - 90, 590);
+      text("1", textFrame + 60, 590);
+      text("2", textFrame + 210, 590);
+      text("3", textFrame + 360, 590);
+      text("4", textFrame + 510, 590);
     pop()
     frame--;
     textFrame--;
