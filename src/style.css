@@ -94,3 +94,30 @@ label{
   display: flex;
   align-items: stretch;
 }
+
+#choix_multiple{
+  align-items: center;
+  vertical-align: center;
+}
+
+.options{
+  text-decoration: none;
+}
+
+.options li{
+  align-self: center;
+  width: 100%;
+  list-style-type: none;
+}
+
+.choix{
+  text-decoration: none;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}

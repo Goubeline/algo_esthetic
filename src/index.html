@@ -93,7 +93,17 @@
         <div id="buttons">
           <button id="animate_sliding_colors" onclick="switch_animation()">Make the colors move</button>
           <button id="validate" onclick="validate_colors_concepts()">Validate current association and get new colors</button>
-          <button id="" onclick="">placeholder</button>
+          <div id="choix_multiple">
+            <button id="bouton_deroulant" onclick="toggleButton()">placeholder</button>
+            <ul class="options show">
+              <li>
+                  <button class="choix">True random</button>
+              </li>
+              <li>
+                <button class="choix">Tempered brightness</button>
+              </li>
+            </ul>
+          </div>
         </div>
         <div id="fake_div">
           <button id="download" onclick='createCSV()'>Download CSV</button>

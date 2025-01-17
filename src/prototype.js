@@ -415,3 +415,9 @@ function draw(){
     no_animation();
   }
 }
+
+function toggleButton() {
+  var text = document.getElementsByClassName("options");
+  text.classList.toggle("hide");
+  text.classList.toggle("show");
+}
