@@ -90,12 +90,15 @@
           </div>
           <p>Current: <output id="value_harmoniousness"></output></p>
         </div>
+        <div id="fake_div">
+          <button id="download" onclick='createCSV()'>Download CSV</button>
+        </div>
         <div id="buttons">
           <button id="animate_sliding_colors" onclick="switch_animation()">Make the colors move</button>
           <button id="validate" onclick="validate_colors_concepts()">Validate current association and get new colors</button>
-          <div id="choix_multiple">
-            <button id="bouton_deroulant" onclick="toggleButton()">placeholder</button>
-            <ul class="options show">
+          <div id="choix_multiple" class="show">
+            <button id="bouton_deroulant" onclick="toggleButton()">Randomness mod</button>
+            <ul id="options" class="hide">
               <li>
                   <button class="choix">True random</button>
               </li>
@@ -105,9 +108,7 @@
             </ul>
           </div>
         </div>
-        <div id="fake_div">
-          <button id="download" onclick='createCSV()'>Download CSV</button>
-        </div>
+
       </div>
       <script src="prototype.js"></script>
     </main>

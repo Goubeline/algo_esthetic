@@ -417,7 +417,7 @@ function draw(){
 }
 
 function toggleButton() {
-  var text = document.getElementsByClassName("options");
+  var text = document.getElementById("options");
   text.classList.toggle("hide");
   text.classList.toggle("show");
 }

@@ -115,28 +115,37 @@ label{
 }
 
 #fake_div{
-  border: 0;
+  border-left: 0;
+  border-right: 0;
   display: flex;
   align-items: stretch;
 }
 
 #choix_multiple{
+  display: inline;
   align-items: center;
   vertical-align: center;
 }
 
-.options{
+#options{
+  flex-direction: row;
   text-decoration: none;
+  padding: 0;
 }
 
-.options li{
-  align-self: center;
-  width: 100%;
+#options li{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
   list-style-type: none;
+  width: 100%;
 }
 
 .choix{
   text-decoration: none;
+  align-self: center;
+
 }
 
 .hide {
@@ -144,5 +153,20 @@ label{
 }
 
 .show {
-  display: block;
+  display: flex;
+}
+
+#buttons{
+  border: 0;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+#buttons>*{
+  margin-top: 2%;
+}
+
+button{
+  border: 0;
 }
