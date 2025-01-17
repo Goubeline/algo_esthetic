@@ -162,6 +162,24 @@ function add_substract_value(name,add_or_substract){
   }
 }
 
+let randomnesstype = 0;
+
+function makeTrueRandom() {
+  if (randomnesstype === 1) {
+    randomnesstype = 0;  
+    fakeSetUp();
+    toggleButton();
+  }
+}
+
+function makeTemperedRandom() {
+  if (randomnesstype === 0) {
+    randomnesstype = 1;  
+    fakeSetUp();
+    toggleButton();
+  }
+}
+
 let frame;
 let textFrame;
 let buff;
@@ -171,10 +189,20 @@ let color_3;
 let color_4;
 
 function fakeSetUp(){
-  color_1 = random_color_hsl();
-  color_2 = random_color_hsl();
-  color_3 = random_color_hsl();
-  color_4 = random_color_hsl();
+  if (randomnesstype == 0) {
+    color_1 = random_color_hsl();
+    color_2 = random_color_hsl();
+    color_3 = random_color_hsl();
+    color_4 = random_color_hsl();
+  }
+  else{
+    color_1 = tempered_brightness_hsl();
+    color_2 = tempered_brightness_hsl();
+    color_3 = tempered_brightness_hsl();
+    color_4 = tempered_brightness_hsl();
+
+  }
+
   colors_data[count].color_1_hue = color_1.hue;
   colors_data[count].color_1_saturation = color_1.saturation;
   colors_data[count].color_1_lightness = color_1.lightness;
@@ -308,7 +336,6 @@ function validate_colors_concepts(){
   input_har.value =50;
   value_har.textContent =50;
   
-
   fakeSetUp();
 }
 
@@ -390,14 +417,19 @@ function random_color_hsl(){
   let random_color = {
       hue: floor(random(0, 360)),
       saturation: floor(random(0, 100)),
-      lightness: floor(random(0, 100))
+      lightness: floor(random(0, 100, 55))
   };
   return random_color;
 }
 
-// function tempered_brightness_hsl(){
-
-// }
+function tempered_brightness_hsl(){
+  let random_color = {
+    hue: floor(random(0, 360)),
+    saturation: floor(random(0, 100)),
+    lightness: floor(createMemberInNormalDistribution(55, 15, 0, 100))
+  };
+  return random_color;  
+}
 
 function setup(){
   createCanvas(650, 600);
