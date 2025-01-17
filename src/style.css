@@ -81,7 +81,32 @@ p{
 input{
   vertical-align: top;
   width: 150px;
+  height: 10px;
+  border-radius: 5px;
+  margin:2px;
+  appearance: none;
+  background: #d3d3d3;
+  align-self: center;
 }
+
+input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%; 
+  background: black;
+  cursor: pointer;
+}
+
+input::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: black;
+  cursor: pointer;
+}
+
 
 label{
   vertical-align: top;
