@@ -187,53 +187,60 @@ function fakeSetUp(){
   colors_data[count].color_4_hue = color_4.hue;
   colors_data[count].color_4_saturation = color_4.saturation;
   colors_data[count].color_4_lightness = color_4.lightness;
-  frame = 150;
-  textFrame = 600;
+}
+
+function hachure(x){
+  fill("white");
+  rect(x, 0, 50, 600);
+  fill("black");
+  for(let y = 0; y <= 620; y+= 15)
+  {
+    quad(x, y + 5, x, y + 8, x + 50, y - 17, x + 50, y - 20);
+  }
 }
 
 function animate(){
   if (frame == -1)
     {
-      frame = 149;
-      buff = color_1;
-      color_1 = color_2;
-      color_2 = color_3;
-      color_3 = color_4;
-      color_4 = buff;
+      frame = 649;
     }
-  
-    if (textFrame == -1) {
-      textFrame = 599;
-    }
+
     noStroke();
     fill(color_1.hue, color_1.saturation, color_1.lightness);
-    rect(-150 + frame, 0, 150, 600);
+    rect(-650 + frame, 0, 150, 600);
     fill(color_2.hue, color_2.saturation, color_2.lightness);
-    rect(frame, 0, 150, 600);
+    rect(-500 + frame, 0, 150, 600);
     fill(color_3.hue, color_3.saturation, color_3.lightness);
-    rect(150 + frame, 0, 150, 600);
+    rect(-350 + frame, 0, 150, 600);
     fill(color_4.hue, color_4.saturation, color_4.lightness);
-    rect(300 + frame, 0, 150, 600);
+    rect(-200 + frame, 0, 150, 600);
+    hachure(-50 + frame);
     fill(color_1.hue, color_1.saturation, color_1.lightness);
-    rect(450 + frame, 0, 150, 600);
+    rect(frame, 0, 150, 600);
     fill(color_2.hue, color_2.saturation, color_2.lightness);
-    rect(600 + frame, 0, 150, 600);
+    rect(150 + frame, 0, 150, 600);
+    fill(color_3.hue, color_3.saturation, color_3.lightness);
+    rect(300 + frame, 0, 150, 600);
+    fill(color_4.hue, color_4.saturation, color_4.lightness);
+    rect(450 + frame, 0, 150, 600);
+    hachure(600 + frame);
 
     push()
       stroke("white");
       strokeWeight(4);
       fill("black");
-      text("1", textFrame - 530, 590);
-      text("2", textFrame - 380, 590);
-      text("3", textFrame - 230, 590);
-      text("4", textFrame - 80, 590);
-      text("1", textFrame + 70, 590);
-      text("2", textFrame + 220, 590);
-      text("3", textFrame + 370, 590);
-      text("4", textFrame + 520, 590);
+      text("1", frame - 580, 590);
+      text("2", frame - 430, 590);
+      text("3", frame - 280, 590);
+      text("4", frame - 130, 590);
+      text("1", frame + 70, 590);
+      text("2", frame + 220, 590);
+      text("3", frame + 370, 590);
+      text("4", frame + 520, 590);
     pop()
+
+
     frame--;
-    textFrame--;
 }
 
 function no_animation(){
@@ -260,8 +267,7 @@ function no_animation(){
 function switch_animation(){
   if (state === 'red_light'){
     document.getElementById('animate_sliding_colors').textContent = 'Make the colors stop';
-    frame = 150;
-    textFrame = 600;
+    frame = 650;
     state = 'green_light';
   } else if (state === 'green_light'){
     document.getElementById('animate_sliding_colors').textContent = 'Make the colors move';
@@ -335,14 +341,58 @@ function createCSV(){
   document.body.removeChild(downloadLink);  
 }
 
+function triangular_distribution(min, max, top) {
+  let F = (top - min) / (max / min);
+  let rand = random();
+  if (rand < F) {
+    return (min + sqrt(rand * (max - min) * (top - min)));
+  }
+  else
+  {
+    return (max - sqrt((1 - rand) * (max - min) * (max - top)));
+  }
+}
+
+/*
+ * Returns member of set with a given mean and standard deviation
+ * mean: mean
+ * standard deviation: std_dev 
+ */
+function createMemberInNormalDistribution(mean,std_dev, min, max){
+  let rand = mean + (gaussRandom()*std_dev);
+  while (rand < min || rand > max) {
+    rand = mean + (gaussRandom()*std_dev);
+  }
+  return rand;
+}
+
+/*
+* Returns random number in normal distribution centering on 0.
+* ~95% of numbers returned should fall between -2 and 2
+* ie within two standard deviations
+*/
+function gaussRandom() {
+  var u = 2*random()-1;
+  var v = 2*random()-1;
+  var r = u*u + v*v;
+  /*if outside interval [0,1] start over*/
+  if(r == 0 || r >= 1) return gaussRandom();
+
+  var c = sqrt(-2*log(r)/r);
+  return u*c;
+  
+  /* todo: optimize this algorithm by caching (v*c) 
+   * and returning next time gaussRandom() is called.
+   * left out for simplicity */
+}
 
 function random_color_hsl(){
-    let random_color = {
-        hue: floor(random(0, 360)),
-        saturation: floor(random(0, 100)),
-        lightness: floor(random(0, 100))
-    };
-    return random_color;
+  let random_color = {
+      hue: floor(random(0, 360)),
+      saturation: floor(random(0, 100)),
+      lightness: floor(random(0, 100))
+  };
+  return random_color;
 }
 
 // function tempered_brightness_hsl(){
@@ -350,16 +400,16 @@ function random_color_hsl(){
 // }
 
 function setup(){
-  createCanvas(650, 700);
+  createCanvas(650, 600);
   noStroke();
   colorMode(HSL);
   textSize(25);
   fakeSetUp();
+  frame = 650;
 }
 
 function draw(){
   if (state === 'green_light'){
-
     animate();
   } else if (state === 'red_light'){
     no_animation();
