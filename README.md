@@ -8,6 +8,6 @@ You can either use this site by :
 
 &emsp;&emsp;- downloading the project and installing the p5.js extension via visual studio code.
 
-
+&nbsp; 
 
 Project By Loïc Le Bray and Léo Suy
